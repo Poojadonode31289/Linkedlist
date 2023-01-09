@@ -1,1 +1,86 @@
+public class Main
+{   
+    static class Node{
+        int data;
+        Node next;
+        public Node(int data){
+            this.data=data;
+            next=null;
+        }
+    }
+    public static Node head;
+	public static void main(String[] args) {
+	    Main ll=new Main();
+	   ll.addfirst(20);
+	   ll.addfirst(89);
+	   ll.addfirst(6);
+	   ll.addlast(45);
+	   ll.deletefirst();
+	   ll.deletelast();
+	   ll.print();
+	
+	}
+	public void addfirst(int data){
+	    Node newNode=new Node(data);
+	    if(head==null){
+	        head=newNode;
+	        return;
+	        
+	    }
+	    newNode.next=head;
+	    head=newNode;
+	}
+	public void addlast(int data){
+	    Node newNode=new Node(data);
+	    if(head==null){
+	        head=newNode;
+	        return;
+	        
+	    }
+	    Node temp=head;
+	    while(temp.next!=null){
+	        temp=temp.next;
+	    }
+	    temp.next=newNode;
+	}
+	public void deletefirst(){
+	    if(head==null){
+	        System.out.print("List is empty");
+	    }
+	    head=head.next;
+	}
+	public void deletelast(){
+	    
+	        if(head==null){
+	        System.out.print("List is empty");
+	        return;
+	        }
+	   
+	    if(head.next==null){
+	        head=null;
+	        return;
+	    }
+	    Node h1=head;
+	    Node h2=head.next;
+	    while(h2.next!=null){
+	        h1=h1.next;
+	        h2=h2.next;
+	    }
+	    h1.next=null;
+	        
+	    }
+	
+	public void print(){
+	    if(head==null){
+	        System.out.println("empty");
+	    }
+	    Node temp=head;
+	    while(temp!=null){
+	        System.out.print(temp.data+"->");
+	        temp=temp.next;
+	    }
+	    System.out.print("null");
+	    
+	}
+}
 
